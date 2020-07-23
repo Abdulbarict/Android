@@ -16,17 +16,24 @@ class Home extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            Container(
-              decoration:
-                  BoxDecoration(borderRadius: BorderRadius.circular(10.0)),
-              // color: Colors.green,
-              child: Text("data"),
+            Card(
+              color: Colors.white70,
+              child: Container(
+                width: 180,
+                height: 150,
+                child: Text("data"),
+              ),
             ),
-            Container(
-              decoration:
-                  BoxDecoration(borderRadius: BorderRadius.circular(10.0)),
-              // color: Colors.green,
-              child: Text("data"),
+            Card(
+              color: Colors.white70,
+              child: Container(
+                width: 180,
+                height: 150,
+                child: Icon(
+                  Icons.done_all,
+                  color: Colors.green[700],
+                ),
+              ),
             )
           ],
         ),
