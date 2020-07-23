@@ -1,20 +1,30 @@
-// import 'dart:core';
+enum TodoStatus { active, done }
 
-// class ToDoItem {
-//   String todoItem;
-//   int status;
-//   DateTime createdAt;
+class Todo {
+  int id;
+  String title;
+  DateTime created;
+  DateTime updated;
+  int status;
 
-//   ToDoItem({this.todoItem, this.status, this.createdAt});
-//   Factory ToDoItem.fromMap(Map<String, dynamic> map) {
-//     todoItem = map["itemName"];
-//     status = map["itemStatus"];
-//     createdAt = map["created_at"];
-//   }
-//   Map<String, dynamic> toMap() => {
-//     "itemName" =todoItem,
-//     "itemStatus" = status,
-//     "created_at"= createdAt,
+  Todo({this.id, this.title, this.created, this.updated, this.status});
 
-//   };
-// }
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'title': title,
+      'created': created.toString(),
+      'updated': updated.toString(),
+      'status': status,
+    };
+  }
+
+  Map<String, dynamic> toMapAutoID() {
+    return {
+      'title': title,
+      'created': created.toString(),
+      'updated': updated.toString(),
+      'status': TodoStatus.active.index,
+    };
+  }
+}

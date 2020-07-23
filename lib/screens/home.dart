@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/screens/count_card.dart';
+import 'package:myapp/screens/todo.dart';
 import 'package:myapp/util/constants.dart';
+import 'package:myapp/widgets/popup.dart';
 
 class Home extends StatelessWidget {
   const Home({Key key}) : super(key: key);
@@ -13,28 +16,10 @@ class Home extends StatelessWidget {
         backgroundColor: Colors.green[700],
       ),
       body: Container(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        child: Column(
           children: <Widget>[
-            Card(
-              color: Colors.white70,
-              child: Container(
-                width: 180,
-                height: 150,
-                child: Text("data"),
-              ),
-            ),
-            Card(
-              color: Colors.white70,
-              child: Container(
-                width: 180,
-                height: 150,
-                child: Icon(
-                  Icons.done_all,
-                  color: Colors.green[700],
-                ),
-              ),
-            )
+            CountCard(),
+            Todo(),
           ],
         ),
       ),
@@ -51,7 +36,7 @@ class Home extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10.0)),
                         title: Text("Add Task"),
-                        content: Text("Dialog Content"),
+                        content: TodoForm(),
                       );
                     })
               }),

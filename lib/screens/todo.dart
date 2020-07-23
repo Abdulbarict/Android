@@ -8,18 +8,36 @@ class Todo extends StatefulWidget {
 }
 
 class _TodoState extends State<Todo> {
-  // final _formKey = GlobalKey<FormState>();
-  final title = TextEditingController();
+  List<String> litems = [
+    "1",
+    "2",
+    "Third",
+    "4",
+    "2",
+    "Third",
+    "4",
+    "yy",
+    "yyy",
+  ];
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: Text('Create Todo'),
-          bottomOpacity: 0.0,
-          elevation: 0.0,
-        ),
-        body: Center(
-          child: Text("data"),
-        ));
+    return Expanded(
+      child: ListView.builder(
+        itemCount: litems.length,
+        physics: ScrollPhysics(),
+        itemBuilder: (context, int position) {
+          return Card(
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Text(
+                litems[position],
+                style: TextStyle(fontSize: 22.0),
+              ),
+            ),
+          );
+        },
+      ),
+    );
   }
 }

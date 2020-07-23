@@ -1,15 +1,41 @@
 import 'package:flutter/material.dart';
 
-class PopUp extends StatelessWidget {
+class TodoForm extends StatelessWidget {
   final String msg;
-  const PopUp({this.msg});
+  const TodoForm({this.msg});
 
   @override
   Widget build(BuildContext context) {
-    return LimitedBox(
-      child: Container(
-        padding: EdgeInsets.only(left: 15.0, top: 30.0),
-        child: Text(msg),
+    final _formKey = GlobalKey<FormState>();
+    return Form(
+      key: _formKey,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: <Widget>[
+          TextFormField(
+            decoration: InputDecoration(
+              border: OutlineInputBorder(),
+              hintText: 'Enter a Task',
+              labelText: 'Task',
+            ),
+            validator: (value) {
+              if (value.isEmpty) {
+                return 'Please enter some text';
+              }
+              return null;
+            },
+          ),
+          RaisedButton(
+            shape: RoundedRectangleBorder(),
+            onPressed: () => {},
+            child: Text(
+              "Add Task",
+              style: TextStyle(color: Colors.white),
+            ),
+            color: Colors.green[700],
+          )
+        ],
       ),
     );
   }
